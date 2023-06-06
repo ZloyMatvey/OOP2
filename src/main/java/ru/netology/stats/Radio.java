@@ -1,9 +1,33 @@
 package ru.netology.stats;
 
 public class Radio {
-    // Радиостанция
-    public int currentRadioStation;
+    // Поля
+    private int currentRadioStation;
+    private int currentVolume;
 
+    //Инкапсуляция Радиостанции
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
+        if (newCurrentRadioStation > 9) {
+            return;
+        }
+        currentRadioStation = newCurrentRadioStation;
+    }
+
+    //Инкапсуляция громкости
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
+    }
+
+
+    //Методы радиостанции
     //Увеличение радиостанции
     public void increaseRadioStation() {
         if (currentRadioStation < 9) {
@@ -22,18 +46,8 @@ public class Radio {
         }
     }
 
-    // Установка станции в ручную. Проверку на станцию менее 0 не делаю.
-    // Т.к переключить на станцию менее 0 технически не возможно (с точни зрения пользователя)
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation <= 9)
-            currentRadioStation = newCurrentRadioStation;
-        else return;
 
-    }
-
-    //Громкость
-    public int currentVolume;
-
+    //Методы громкости
     // Увеличение громкости
     public void increaseVolume() {
         if (currentVolume < 100) {
