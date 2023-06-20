@@ -6,6 +6,8 @@ public class Radio {
     private int minRadioStation = 0;
     private int maxRadioStation = 9;
     private int currentRadioStation = minRadioStation;
+    private int quantityRadioStation;
+
     // Поля громкости
     private int minVolume = 0;
     private int maxVolume = 99;
@@ -17,9 +19,9 @@ public class Radio {
     }
 
 
-    // Конструктор Радиостанции c установкой максимального кол-ва каналов
-    public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
+    // Конструктор Радиостанции c установкой кол-ва каналов
+    public Radio(int quantityRadioStation) {
+        this.quantityRadioStation = quantityRadioStation;
 
     }
 
@@ -49,23 +51,37 @@ public class Radio {
 
     //Инкапсуляция полей громкости
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
     public int getMaxVolume() {
+
         return maxVolume;
     }
 
     public int getMinVolume() {
+
         return minVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
+
         currentVolume = newCurrentVolume;
     }
 
-
     //Методы радиостанции
+
+    // Установка количества радиоканалов
+
+    public void settingQuantityRadioChannels() {
+        if (quantityRadioStation == maxRadioStation + 1) {
+            return;
+        } else {
+            maxRadioStation = quantityRadioStation - 1;
+        }
+    }
+
     //Увеличение радиостанции
     public void increaseRadioStation() {
         if (currentRadioStation < getMaxRadioStation()) {
