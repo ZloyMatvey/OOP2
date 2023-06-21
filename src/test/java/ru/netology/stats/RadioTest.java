@@ -117,7 +117,6 @@ public class RadioTest {
     @Test
     public void QuantityRadioStation() {
         Radio radio = new Radio(15);
-        radio.settingQuantityRadioChannels();
         int expected = 14;
         Assertions.assertEquals(expected, radio.getMaxRadioStation());
     }
@@ -126,7 +125,6 @@ public class RadioTest {
     @Test
     public void QuantityRadioStationDefault() {
         Radio radio = new Radio(10);
-        radio.settingQuantityRadioChannels();
         int expected = 9;
         Assertions.assertEquals(expected, radio.getMaxRadioStation());
     }
@@ -135,10 +133,17 @@ public class RadioTest {
     @Test
     public void nextRadioStationWithQuantity() {
         Radio radio = new Radio(50);
-        radio.settingQuantityRadioChannels();
         radio.setCurrentRadioStation(39);
         radio.increaseRadioStation();
         int expected = 40;
         Assertions.assertEquals(expected, radio.getCurrentRadioStation());
+    }
+    @Test
+    public void quantityRadioStationTest(){
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        int expected = 15;
+        Assertions.assertEquals(expected, radio.getCurrentRadioStation());
+
     }
 }

@@ -22,7 +22,7 @@ public class Radio {
     // Конструктор Радиостанции c установкой кол-ва каналов
     public Radio(int quantityRadioStation) {
         this.quantityRadioStation = quantityRadioStation;
-
+        this.maxRadioStation = quantityRadioStation - 1;
     }
 
 
@@ -71,16 +71,6 @@ public class Radio {
     }
 
     //Методы радиостанции
-
-    // Установка количества радиоканалов
-
-    public void settingQuantityRadioChannels() {
-        if (quantityRadioStation == maxRadioStation + 1) {
-            return;
-        } else {
-            maxRadioStation = quantityRadioStation - 1;
-        }
-    }
 
     //Увеличение радиостанции
     public void increaseRadioStation() {
